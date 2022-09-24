@@ -27,10 +27,10 @@ To add a new library for testing you have to take the following steps:
 git submodule add git@github.com:url_to/new_submodule.git submodules/new_submodule_name
 ```
 
-- Add a **relative symlink** inside the `tests` folder to point to the submodule's test folder (the symlink can have the submodules name). That is, from within the repo root directory do (the first part makes sure the link points *locally* to the submodules test folder from within the integration test folder):
+- Add a **relative symlink** inside the `tests` folder to point to the submodule. That is, from within the repo root directory do (the first part makes sure the link points *locally* to the submodule from within the integration test folder):
 
 ```
-ln -sv ../submodules/new_submodule_name/tests ./tests/new_submodule_name
+ln -sv ../submodules/new_submodule_name ./tests/new_submodule_name
 ```
 
 - Make sure the tests use the **local version** of your submodule by adding the following inside `tests/__init__.py` (this makes sure your local version is first in `path` and therefore found before any preinstalled versions):
@@ -39,3 +39,11 @@ ln -sv ../submodules/new_submodule_name/tests ./tests/new_submodule_name
 import sys  # this is already there
 sys.path.insert(0, "submodules/new_submodule_name")  # <-- add this
 ```
+
+## Fixing tests in submodules locally
+
+Fixing tests in the submodules can be tricky to do locally. This is because changes would need to be committed and updated in the main repo.  A quick fix to get a fast local development cycle is the following:
+
+- rename the submodule folder, e.g., by appending an underscore
+- create a symlink with the same *name* as the submodule folder (before renaming) that points to a *local version* of that submodule
+- do your testing and development and revert (delete symlink, rename submodule) once you are done
