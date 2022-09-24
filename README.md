@@ -1,4 +1,7 @@
+[![tests](https://github.com/robert-lieck/integration/actions/workflows/tests.yml/badge.svg)](https://github.com/robert-lieck/integration/actions/workflows/tests.yml) [![test_dev](https://github.com/robert-lieck/integration/actions/workflows/test_dev.yml/badge.svg)](https://github.com/robert-lieck/integration/actions/workflows/test_dev.yml)
+
 # Integration
+
 Integration tests for various other libraries
 
 ## Running the tests
