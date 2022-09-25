@@ -1,3 +1,6 @@
 [submodule "submodules/triangularmap"]
 	path = submodules/triangularmap
 	url = git@github.com:robert-lieck/triangularmap.git
+[submodule "submodules/musicflower"]
+	path = submodules/musicflower
+	url = git@github.com:robert-lieck/musicflower.git
